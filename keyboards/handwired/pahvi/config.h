@@ -3,8 +3,8 @@
 #include "config_common.h"
 
 /* USE Device descriptor parameter */
-#define VENDOR_ID	0x1234
-#define PRODUCT_ID	0X5678
+#define VENDOR_ID	0xABCD
+#define PRODUCT_ID	0x0001
 #define DEVICE_VER	0x0001
 #define MANUFACTURER	ME
 #define PRODUCT		Pahvi
