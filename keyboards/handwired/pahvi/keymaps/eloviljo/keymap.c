@@ -391,7 +391,7 @@ RALT(KC_RBRC),KC_1,	KC_2,	KC_3,	KC_4,	KC_5,							KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	
  */
 [_STUFF] = LAYOUT_split( \
 LSFT(KC_EQL),_______,_______,_______,_______,_______,						_______,_______,_______,_______,_______,_______,\
-_______,_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,_______,						_______,EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,KC_PSCR,\
+_______,_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,_______,						_______,EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,KC_LEFT_BRACKET,KC_PSCR,\
 	_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______,_______, RESET		\
 ),
 /* Cubing
