@@ -7,10 +7,14 @@
 #define _FUNC 4
 #define _NUM 5
 #define _STUFF 6
+#define _AKLFIN 7
+// #define _AKLENG 8
 
 
 enum custom_keycodes {
 	ENTER_GAMING = SAFE_RANGE,
+	AKL_FIN,
+	// AKL_ENG,
 	ENTER_SCUFFED,
 	EXIT_GAMING,
 	/*
@@ -95,6 +99,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			} else {
 			}
 			break;
+		case AKL_FIN:
+			if (record->event.pressed) {
+				combo_enable();
+				layer_on(_AKLFIN);
+		/*case AKL_ENG:
+			if (record->event.pressed) {
+				combo_enable();
+				layer_on(_AKLENG);*/
 			/*
 		case ENTER_CUBING:
 			if (record->event.pressed) {
@@ -380,7 +392,7 @@ RALT(KC_RBRC),KC_1,	KC_2,	KC_3,	KC_4,	KC_5,							KC_6,	KC_7,	KC_8,	KC_9,	KC_0,	
  * ,-----------------------------------------.	,-----------------------------------------.
  * |      |      |      |      |      |      |	|      |      |      |      |      |      |	
  * |------+------+------+------+------+------|	|------+------+------+------+------+------|
- * |      |      | PGDN | PTAB | GAME |      |	|      | EXIT | NTAB | PGUP |      | PSRC |
+ * |      |      | PGDN | PTAB | GAME |      |	|      | EXIT | NTAB | PGUP |   å  | PSRC |
  * `------+------+------+------+------+------|	|------+------+------+------+------+------'
  *        |      |      |      | CUBE |      |	|      |      |      |      |RESET |
  *        `----------------------------------'	`----------------------------------'
