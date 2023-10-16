@@ -31,4 +31,6 @@
 #define DEBOUNCE 10
 #define NO_ACTION_ONESHOT
 
+#define FORCE_NKRO
+
 #define TAPPING_TERM 200
