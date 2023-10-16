@@ -1,0 +1,19 @@
+# MCU name
+MCU = atmega32u4
+
+F_CPU = 16000000
+ARCH = AVR8
+F_USB = $(F_CPU)
+OPT_DEFS += -DINTERRUPT_CONTROL_ENDPOINT
+# Bootloader selection
+BOOTLOADER = caterina
+
+# Build options
+SPLIT_KEYBOARD = yes
+MOUSEKEY_ENABLE = no
+EXTRAKEY_ENABLE = yes
+COMMAND_ENABLE = yes
+COMBO_ENABLE = yes
+NKRO_ENABLE = yes
+DEBOUNCE_TYPE = asym_eager_defer_pk
+REPEAT_KEY_ENABLE = yes
