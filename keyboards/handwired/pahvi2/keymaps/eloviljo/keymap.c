@@ -130,7 +130,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 		_______,_______,_______,_______,				_______,_______,_______,_______,		\
 LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,_______,		_______,EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
 _______,_______,_______,_______,_______,_______,				_______,_______,_______,_______,KC_LEFT_BRACKET,KC_PSCR,\
-	_______,		_______,_______,_______,_______,_______,_______,_______,_______,		RESET		\
+	_______,		_______,_______,_______,_______,_______,_______,_______,_______,		QK_BOOT		\
 ),
 
 };
@@ -140,16 +140,6 @@ enum combo_events {
 
 const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
 
-combo_t key_combos[COMBO_COUNT] = {
-	[FJ_ESC] = COMBO_ACTION(fj_combo)
-};
-
-void process_combo_event(uint16_t combo_index, bool pressed) {
-	switch(combo_index) {
-		case FJ_ESC:
-			if (pressed) {
-				tap_code16(KC_ESC);
-			}
-			break;
-	}
+combo_t key_combos[] = {
+	[FJ_ESC] = COMBO(fj_combo, KC_ESC)
 };
