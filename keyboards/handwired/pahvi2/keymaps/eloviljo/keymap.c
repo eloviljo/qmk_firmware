@@ -166,3 +166,14 @@ const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
 combo_t key_combos[] = {
 	[FJ_ESC] = COMBO(fj_combo, KC_ESC)
 };
+
+bool remember_last_key_user(uint16_t keycode, keyrecord_t* record, uint8_t* remembered_mods) {
+	switch (keycode) {
+		case KC_A ... KC_Z:
+			if ((*remembered_mods & ~MOD_MASK_SHIFT)== 0) {
+				*remembered_mods &= ~MOD_MASK_SHIFT;
+			}
+			break;
+	}
+	return true;
+}
