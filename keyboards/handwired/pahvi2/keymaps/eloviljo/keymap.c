@@ -1,10 +1,13 @@
 #include "pahvi.h"
 
-#define _QWERTY 0
-#define _GAME 1
-#define _FUNC 2
-#define _NUM 3
-#define _STUFF 4
+enum layer_names {
+	_QWERTY,
+	_AKLFIN,
+	_GAME,
+	_FUNC,
+	_NUM,
+	_STUFF
+};
 
 enum custom_keycodes {
 	ENTER_GAMING = SAFE_RANGE,
@@ -51,6 +54,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_ESC,	KC_Q,	KC_S,	KC_D,	KC_F,	KC_G,								KC_H,	KC_J,	KC_K,	KC_L,	KC_P,	LSFT(KC_7),\
 KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,								KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT,KC_NUHS,\
 	KC_Z,			KC_LCTL,KC_TAB,KC_LSFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
+),
+/* @aeiw (finnish akl)
+*
+*,-----------------------------------------.  ,-----------------------------------------.
+*| ESC  |   C  |   Ä  |   O  |   U  |   Z  |  |   ,  |   J  |   R  |   P  |   B  |   /  |
+*|------+------+------+------+------+------|  |------+------+------+------+------+------|
+*| GUI  |   @  |   A  |   E  |   I  |   W  |  |   M  |   K  |   N  |   T  |   S  |   '  |
+*`------+------+------+------+------+------|  |------+------+------+------+------+------'
+*       |   G  |   F  |   X  |   Y  |   -  |  |   .  |   V  |   L  |   D  |   H  |
+*       `----------------------------------'  `----------------------------------'
+*
+*              ,---------------------------.  ,---------------------------.
+*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
+*              `---------------------------'  `---------------------------'
+*/
+[_AKLFIN] = LAYOUT_split( \
+		KC_QUOT,KC_O,	KC_U,	KC_Z,								KC_COMM,KC_J,	KC_R,	KC_P,			\
+KC_ESC,	KC_C,	KC_A,	KC_E,	KC_I,	KC_W,								KC_M,	KC_K,	KC_N,	KC_T,	KC_B,	LSFT(KC_7),\
+KC_LGUI,QK_REP,	KC_F,	KC_X,	KC_Y,	KC_SLSH,							KC_DOT,	KC_V,	KC_L,	KC_D,	KC_S,	KC_NUHS,\
+	KC_G,			KC_LCTL,KC_TAB,KC_LSFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_H		\
 ),
 /* gaming
 *
@@ -117,7 +140,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 *,-----------------------------------------.  ,-----------------------------------------.
 *|  `   |      |      |      |      |      |  |      |      |      |      |      |      |
 *|------+------+------+------+------+------|  |------+------+------+------+------+------|
-*|      |      | PGDN | PTAB | GAME |      |  |      | EXIT | NTAB | PGUP |   å  | PSCR |
+*|      |      | PGDN | PTAB | GAME |AKLFIN|  |QWERTY| EXIT | NTAB | PGUP |   å  | PSCR |
 *`------+------+------+------+------+------|  |------+------+------+------+------+------'
 *       |      |      |      |      |      |  |      |      |      |      |RESET |
 *       `----------------------------------'  `----------------------------------'
@@ -128,7 +151,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 */
 [_STUFF] = LAYOUT_split( \
 		_______,_______,_______,_______,				_______,_______,_______,_______,		\
-LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,_______,		_______,EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
+LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,DF(_AKLFIN),	DF(_QWERTY),EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
 _______,_______,_______,_______,_______,_______,				_______,_______,_______,_______,KC_LEFT_BRACKET,KC_PSCR,\
 	_______,		_______,_______,_______,_______,_______,_______,_______,_______,		QK_BOOT		\
 ),

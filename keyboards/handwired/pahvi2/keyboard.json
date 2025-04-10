@@ -10,7 +10,7 @@
     "diode_direction": "COL2ROW",
     "features": {
         "combo": true,
-        "command": true,
+        "command": false,
         "extrakey": true,
         "mousekey": false,
         "nkro": true,
@@ -19,9 +19,6 @@
     "matrix_pins": {
         "cols": ["B2", "B6", "F6", "F5", "F7", "B1", "E6", "D7"],
         "rows": ["B3", "B5", "B4", "C6"]
-    },
-    "mouse_key": {
-        "enabled": false
     },
     "processor": "atmega32u4",
     "split": {
