@@ -46,7 +46,7 @@
         "device_version": "0.0.1",
         "force_nkro": true,
         "pid": "0x0001",
-        "vid": "0xABCD"
+        "vid": "0xE100"
     },
     "layouts": {
         "LAYOUT_split": {
