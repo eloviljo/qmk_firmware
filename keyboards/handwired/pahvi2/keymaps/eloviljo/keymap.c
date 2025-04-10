@@ -43,14 +43,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              |      | ctrl |Sh/tab| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_QWERTY] = LAYOUT_split( \
-		KC_W,	KC_E,	KC_R,	KC_T,									KC_Y,	KC_U,	KC_I,	KC_O,			\
-KC_ESC,	KC_Q,	KC_S,	KC_D,	KC_F,	KC_G,									KC_H,	KC_J,	KC_K,	KC_L,	KC_P,	LSFT(KC_7),\
-KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,									KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT,KC_NUHS,\
-	KC_Z,				KC_LCTL,LSFT_T(KC_TAB),LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
+		KC_W,	KC_E,	KC_R,	KC_T,								KC_Y,	KC_U,	KC_I,	KC_O,			\
+KC_ESC,	KC_Q,	KC_S,	KC_D,	KC_F,	KC_G,								KC_H,	KC_J,	KC_K,	KC_L,	KC_P,	LSFT(KC_7),\
+KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,								KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT,KC_NUHS,\
+	KC_Z,			KC_LCTL,KC_TAB,KC_LSFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
 ),
 /* gaming
 *
@@ -63,14 +63,14 @@ KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,									KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUO
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              |      | ctrl | SHift| alt  |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Shift| alt  |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_GAME] = LAYOUT_split( \
 		_______,_______,_______,_______,					_______,_______,_______,_______,		\
 KC_1,	_______,_______,_______,_______,_______,					_______,_______,_______,_______,_______,KC_F1,	\
-KC_TAB,	_______,_______,_______,_______,_______,					_______,_______,_______,_______,KC_ESC,KC_F2,	\
-	_______,			KC_LCTL,KC_LSFT,KC_LALT,_______,_______,LT(_NUM,KC_BSPC),_______,		_______		\
+KC_2,	_______,_______,_______,_______,_______,					_______,_______,_______,_______,KC_ESC,KC_F2,	\
+	_______,		_______,_______,_______,KC_LALT,_______,_______,LT(_NUM,KC_BSPC),_______,		_______		\
 ),
 /* fkeys
 *
@@ -83,13 +83,13 @@ KC_TAB,	_______,_______,_______,_______,_______,					_______,_______,_______,___
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              |      | ctrl |Sh/tab| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_FUNC] = LAYOUT_split( \
 		KC_F3,	KC_F4,	KC_F5,	KC_F6,					KC_F7,	KC_F8,	KC_F9,	KC_F10,			\
-KC_F1,	KC_F2,	KC_VOLD,KC_VOLU,KC_MPLY,KC_F20,					KC_LEFT,KC_DOWN,KC_UP, KC_RIGHT,KC_F11,	KC_F12, \
-KC_F19,	KC_MUTE,KC_MPRV,KC_MNXT,KC_MFFD,KC_F21,					KC_F22,	KC_WBAK,KC_WFWD,KC_F23,	KC_SCLN,KC_DEL,	\
+KC_F1,	KC_F2,	KC_KB_VOLUME_DOWN,KC_KB_VOLUME_UP,KC_MPLY,KC_F20,		KC_LEFT,KC_DOWN,KC_UP, KC_RIGHT,KC_F11,	KC_F12, \
+KC_F19,	KC_KB_MUTE,KC_MPRV,KC_MNXT,KC_MFFD,KC_F21,				KC_F22,	KC_WBAK,KC_WFWD,KC_F23,	KC_SCLN,KC_DEL,	\
 	KC_MRWD,		_______,_______,_______,_______,_______,_______,_______,_______,		KC_INS		\
 ),
 /* numbers + stuff
@@ -103,13 +103,13 @@ KC_F19,	KC_MUTE,KC_MPRV,KC_MNXT,KC_MFFD,KC_F21,					KC_F22,	KC_WBAK,KC_WFWD,KC_F
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              |      | ctrl |Sh/tab| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_NUM] = LAYOUT_split( \
-		RALT(KC_7),RALT(KC_8),LSFT(KC_8),KCHOME,			KC_END,	LSFT(KC_9),RALT(KC_9),RALT(KC_0),	\
+		RALT(KC_7),RALT(KC_8),LSFT(KC_8),KC_HOME,			KC_END,	LSFT(KC_9),RALT(KC_9),RALT(KC_0),	\
 RALT(KC_NUBS),LSFT(KC_RBRC),KC_2,KC_3,	KC_4,	KC_5,				KC_6,	KC_7,	KC_8,	KC_9,RALT(KC_MINS),LSFT(KC_MINS),\
-RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSFT(KC_0),KC_NUBS,LSFT(KC_NUBS),KC_0,LSFT(KC_2),\
+RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSFT(KC_0),KC_NUBS,LSFT(KC_NUBS),KC_0,LSFT(KC_2),\
 	LSFT(KC_1),		_______,_______,_______,_______,_______,_______,_______,_______,		KC_MINS		\
 ),
 /* stuff
@@ -123,7 +123,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSFT
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              |      | ctrl |Sh/tab| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_STUFF] = LAYOUT_split( \

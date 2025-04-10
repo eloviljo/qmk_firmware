@@ -18,14 +18,14 @@
 #define DIODE_DIRECTION COL2ROW
 
 // wiring of each half
-#define MATRIX_ROW_PINS {}
-#define MATRIX_COL_PINS {}
-#define MATRIX_ROW_PINS_RIGHT {}
-#define MATRIX_COL_PINS_RIGHT {}
+#define MATRIX_ROW_PINS { B3, B5, B4, C6 }
+#define MATRIX_COL_PINS { B2, B6, F6, F5, F7, B1, E6, D7 }
+#define MATRIX_ROW_PINS_RIGHT { E6, B6, B2, F7 }
+#define MATRIX_COL_PINS_RIGHT { B4, B5, D4, D0, C6, D7, B3, B1 }
 
 #define MASTER_LEFT
 
-#define SOFT_SERIAL_PIN
+#define SOFT_SERIAL_PIN D2
 #define USE_SERIAL
 
 #define DEBOUNCE 10
@@ -34,3 +34,4 @@
 #define FORCE_NKRO
 
 #define TAPPING_TERM 200
+#define COMBO_COUNT 2
