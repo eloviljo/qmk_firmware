@@ -2,7 +2,7 @@
 
 enum layer_names {
 	_QWERTY,
-	_AKLFIN,
+	_GALFI,
 	_GAME,
 	_FUNC,
 	_NUM,
@@ -63,25 +63,25 @@ KC_ESC,	KC_Q,	KC_S,	KC_D,	KC_F,	KC_G,								KC_H,	KC_J,	KC_K,	KC_L,	KC_P,	LSFT(
 KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,								KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT,KC_NUHS,\
 	KC_Z,			KC_LCTL,KC_TAB,REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
 ),
-/* @aeiw (finnish akl)
+/* slightly modified gallium
 *
 *,-----------------------------------------.  ,-----------------------------------------.
-*| ESC  |   C  |   Ä  |   O  |   U  |   Z  |  |   ,  |   J  |   R  |   P  |   B  |   /  |
+*| ESC  |   B  |   L  |   D  |   C  |   V  |  |   Z  |   Y  |   O  |   U  |   ,  |   /  |
 *|------+------+------+------+------+------|  |------+------+------+------+------+------|
-*| GUI  |   @  |   A  |   E  |   I  |   W  |  |   M  |   K  |   N  |   T  |   S  |   '  |
+*| GUI  |   N  |   R  |   T  |   S  |   G  |  |   P  |   H  |   A  |   E  |   I  |   -  |
 *`------+------+------+------+------+------|  |------+------+------+------+------+------'
-*       |   G  |   F  |   X  |   Y  |   -  |  |   .  |   V  |   L  |   D  |   H  |
+*       |   Q  |   X  |   M  |   W  |   J  |  |   F  |   K  |   Ä  |   '  |   .  |
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
 *              | ctrl |  tab | Sft/@| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
-[_AKLFIN] = LAYOUT_split( \
-		KC_QUOT,KC_O,	KC_U,	KC_Z,								KC_COMM,KC_J,	KC_R,	KC_P,			\
-KC_ESC,	KC_C,	KC_A,	KC_E,	KC_I,	KC_W,								KC_M,	KC_K,	KC_N,	KC_T,	KC_B,	LSFT(KC_7),\
-KC_LGUI,QK_REP,	KC_F,	KC_X,	KC_Y,	KC_SLSH,							KC_DOT,	KC_V,	KC_L,	KC_D,	KC_S,	KC_NUHS,\
-	KC_G,			KC_LCTL,KC_TAB,REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_H		\
+[_GALFI] = LAYOUT_split( \
+		KC_L,	KC_D,	KC_C,	KC_V,								KC_Z,	KC_Y,	KC_O,	KC_U,			\
+KC_ESC,	KC_B,	KC_R,	KC_T,	KC_S,	KC_G,								KC_P,	KC_H,	KC_A,	KC_E,	KC_COMM,LSFT(KC_7),\
+KC_LGUI,KC_N,	KC_X,	KC_M,	KC_W,	KC_J,								KC_F,	KC_K,	KC_QUOT,KC_NUHS,KC_I,	KC_SLSH,\
+	KC_Q,			KC_LCTL,KC_TAB,REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_DOT		\
 ),
 /* gaming
 *
@@ -148,7 +148,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 *,-----------------------------------------.  ,-----------------------------------------.
 *|  `   |      |      |      |      |      |  |      |      |      |      |      |      |
 *|------+------+------+------+------+------|  |------+------+------+------+------+------|
-*|      |      | PGDN | PTAB | GAME |AKLFIN|  |QWERTY| EXIT | NTAB | PGUP |   å  | PSCR |
+*|      |      | PGDN | PTAB | GAME |GALFI |  |QWERTY| EXIT | NTAB | PGUP |   å  | PSCR |
 *`------+------+------+------+------+------|  |------+------+------+------+------+------'
 *       |      |      |      |      |      |  |      |      |      |      |RESET |
 *       `----------------------------------'  `----------------------------------'
@@ -159,20 +159,23 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 */
 [_STUFF] = LAYOUT_split( \
 		_______,_______,_______,_______,				_______,_______,_______,_______,		\
-LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,DF(_AKLFIN),	DF(_QWERTY),EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
+LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,DF(_GALFI),	DF(_QWERTY),EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
 _______,_______,_______,_______,_______,_______,				_______,_______,_______,_______,KC_LEFT_BRACKET,KC_PSCR,\
 	_______,		_______,_______,_______,_______,_______,_______,_______,_______,		QK_BOOT		\
 ),
 
 };
 enum combo_events {
-	FJ_ESC
+	FJ_ESC, // qwerty
+	SH_ESC // gallium fi
 };
 
 const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
+const uint16_t PROGMEM sh_combo[] = {KC_S, KC_H, COMBO_END};
 
 combo_t key_combos[] = {
-	[FJ_ESC] = COMBO(fj_combo, KC_ESC)
+	[FJ_ESC] = COMBO(fj_combo, KC_ESC),
+	[SH_ESC] = COMBO(sh_combo, KC_ESC)
 };
 
 bool remember_last_key_user(uint16_t keycode, keyrecord_t* record, uint8_t* remembered_mods) {
