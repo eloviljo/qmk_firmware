@@ -14,6 +14,8 @@ enum custom_keycodes {
 	EXIT_GAMING
 };
 
+#define REP_SFT	LSFT_T(QK_REP)
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	switch(keycode) {
 		case EXIT_GAMING:
@@ -30,6 +32,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 			} else {
 			}
 			break;
+		case REP_SFT:
+			if (record->tap.count) {
+				process_repeat_key(QK_REP,record);
+				return false;
+			}
+			return true;
 	}
 	return true;
 };
@@ -46,14 +54,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Sft/@| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_QWERTY] = LAYOUT_split( \
 		KC_W,	KC_E,	KC_R,	KC_T,								KC_Y,	KC_U,	KC_I,	KC_O,			\
 KC_ESC,	KC_Q,	KC_S,	KC_D,	KC_F,	KC_G,								KC_H,	KC_J,	KC_K,	KC_L,	KC_P,	LSFT(KC_7),\
 KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,								KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT,KC_NUHS,\
-	KC_Z,			KC_LCTL,KC_TAB,KC_LSFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
+	KC_Z,			KC_LCTL,KC_TAB,REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_SLSH		\
 ),
 /* @aeiw (finnish akl)
 *
@@ -66,14 +74,14 @@ KC_LGUI,KC_A,	KC_X,	KC_C,	KC_V,	KC_B,								KC_N,	KC_M,	KC_COMM,KC_DOT,	KC_QUOT
 *       `----------------------------------'  `----------------------------------'
 *
 *              ,---------------------------.  ,---------------------------.
-*              | ctrl |  tab | Shift| _NUM |  | Enter| Space|BckSpc| alt  |
+*              | ctrl |  tab | Sft/@| _NUM |  | Enter| Space|BckSpc| alt  |
 *              `---------------------------'  `---------------------------'
 */
 [_AKLFIN] = LAYOUT_split( \
 		KC_QUOT,KC_O,	KC_U,	KC_Z,								KC_COMM,KC_J,	KC_R,	KC_P,			\
 KC_ESC,	KC_C,	KC_A,	KC_E,	KC_I,	KC_W,								KC_M,	KC_K,	KC_N,	KC_T,	KC_B,	LSFT(KC_7),\
 KC_LGUI,QK_REP,	KC_F,	KC_X,	KC_Y,	KC_SLSH,							KC_DOT,	KC_V,	KC_L,	KC_D,	KC_S,	KC_NUHS,\
-	KC_G,			KC_LCTL,KC_TAB,KC_LSFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_H		\
+	KC_G,			KC_LCTL,KC_TAB,REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),KC_BSPC,KC_LALT,		KC_H		\
 ),
 /* gaming
 *
@@ -93,7 +101,7 @@ KC_LGUI,QK_REP,	KC_F,	KC_X,	KC_Y,	KC_SLSH,							KC_DOT,	KC_V,	KC_L,	KC_D,	KC_S,
 		_______,_______,_______,_______,					_______,_______,_______,_______,		\
 KC_1,	_______,_______,_______,_______,_______,					_______,_______,_______,_______,_______,KC_F1,	\
 KC_2,	_______,_______,_______,_______,_______,					_______,_______,_______,_______,KC_ESC,KC_F2,	\
-	_______,		_______,_______,_______,KC_LALT,_______,_______,LT(_NUM,KC_BSPC),_______,		_______		\
+	_______,		_______,_______,KC_LSFT,KC_LALT,_______,_______,LT(_NUM,KC_BSPC),_______,		_______		\
 ),
 /* fkeys
 *
@@ -174,6 +182,8 @@ bool remember_last_key_user(uint16_t keycode, keyrecord_t* record, uint8_t* reme
 				*remembered_mods &= ~MOD_MASK_SHIFT;
 			}
 			break;
+		case REP_SFT:
+			return false;
 	}
 	return true;
 }
