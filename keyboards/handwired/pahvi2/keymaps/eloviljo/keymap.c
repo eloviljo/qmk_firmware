@@ -159,7 +159,7 @@ RALT(KC_RBRC),KC_1,RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),			LSFT(KC_6),LSF
 */
 [_STUFF] = LAYOUT_split( \
 		_______,_______,_______,_______,				_______,_______,_______,_______,		\
-LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,DF(_GALFI),	DF(_QWERTY),EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
+LSFT(KC_EQL),_______,KC_PGDN,LCTL(LSFT(KC_TAB)),ENTER_GAMING,PDF(_GALFI),	DF(_QWERTY),EXIT_GAMING,LCTL(KC_TAB),KC_PGUP,_______,_______,\
 _______,_______,_______,_______,_______,_______,				_______,_______,_______,_______,KC_LEFT_BRACKET,KC_PSCR,\
 	_______,		_______,_______,_______,_______,_______,_______,_______,_______,		QK_BOOT		\
 ),
