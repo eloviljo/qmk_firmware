@@ -36,6 +36,9 @@
             "protocol": "serial"
         }
     },
+    "combo": {
+	"term": 25
+    },
     "tapping": {
         "term": 200
     },
