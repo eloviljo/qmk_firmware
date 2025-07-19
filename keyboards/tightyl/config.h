@@ -1,0 +1,4 @@
+#define SERIAL_USART_TX_PIN B6     // USART TX pin
+#define SERIAL_USART_RX_PIN B7     // USART RX pin
+
+#define NO_ACTION_ONESHOT
