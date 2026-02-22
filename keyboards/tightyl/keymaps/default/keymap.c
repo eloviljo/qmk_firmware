@@ -64,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 KC_ESC, KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,                                               KC_Y,	KC_U,	KC_I,	KC_O,   KC_P,   LSFT(KC_7),\
 KC_LGUI,KC_A,   KC_S,	KC_D,	KC_F,	KC_G,                                               KC_H,	KC_J,	KC_K,	KC_L,   KC_QUOT,KC_NUHS,\
 KC_F1,  KC_Z,   KC_X,	KC_C,	KC_V,	KC_B,                                               KC_N,	KC_M,	KC_COMM,KC_DOT, KC_SLSH,KC_F2,\
-                KC_LCTL,KC_LALT,CTL_T(KC_TAB),REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,ALT_T(KC_SPC),KC_LCTL,KC_LFST\
+                KC_LCTL,KC_LALT,CTL_T(KC_TAB),REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),ALT_T(KC_BSPC),KC_LCTL,KC_LSFT\
 ),
 /* slightly modified gallium
 *
@@ -84,7 +84,7 @@ KC_F1,  KC_Z,   KC_X,	KC_C,	KC_V,	KC_B,                                         
 KC_ESC, KC_B,   KC_L,   KC_D,   KC_C,   KC_V,                                               KC_Z,	KC_Y,	KC_O,	KC_U,   KC_COMM,LSFT(KC_7),\
 KC_LGUI,KC_N,   KC_R,	KC_T,	KC_S,	KC_G,                                               KC_P,	KC_H,	KC_A,	KC_E,   KC_I,   KC_SLSH,\
 KC_F1,  KC_Q,   KC_X,	KC_M,	KC_W,	KC_J,                                               KC_F,	KC_K,	KC_QUOT,KC_NUHS,KC_DOT, KC_F2,\
-                KC_LCTL,KC_LALT,CTL_T(KC_TAB),REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,ALT_T(KC_SPC),KC_LCTL,KC_LFST\
+                KC_LCTL,KC_LALT,CTL_T(KC_TAB),REP_SFT,LT(_NUM,KC_SPC),LT(_STUFF,KC_ENT),LT(_FUNC,KC_SPC),ALT_T(KC_BSPC),KC_LCTL,KC_LSFT\
 ),
 /* gaming
 *
@@ -97,14 +97,14 @@ KC_F1,  KC_Q,   KC_X,	KC_M,	KC_W,	KC_J,                                         
 *`------+----------------------------------'  `----------------------------------+------'
 *
 *       ,----------------------------------.  ,----------------------------------.
-*       | ctrl | alt  |  tab | Shift|  alt |  | Enter| Space|BckSpc| ctrl |shift |
+*       | ctrl | alt  | ctrl | Shift|  tab |  | Enter| Space|BckSpc| ctrl |shift |
 *       `----------------------------------'  `----------------------------------'
 */
 [_GAME] = LAYOUT( \
 KC_1,   _______,_______,_______,_______,_______,                _______,_______,_______,_______,_______,KC_F1,\
 KC_ESC, _______,_______,_______,_______,_______,                _______,_______,_______,_______,_______,KC_F2,\
 _______,_______,_______,_______,_______,_______,                _______,_______,KC_SLSH,_______,_______,_______,\
-                _______,_______,KC_TAB, KC_LSFT,KC_LALT,_______,_______,LT(_NUM,KC_BSPC),_______,_______\
+                _______,_______,KC_LCTL, KC_LSFT,KC_TAB,_______,_______,LT(_NUM,KC_BSPC),_______,_______\
 ),
 /* fkeys
 *
@@ -143,7 +143,7 @@ _______,KC_MRWD,KC_MPRV,KC_MNXT,KC_MFFD,KC_F21,                                 
 [_NUM] = LAYOUT( \
 RALT(KC_NUBS),LSFT(KC_RBRC),RALT(KC_7),RALT(KC_8),LSFT(KC_8),KC_HOME,                    KC_END,	LSFT(KC_9),RALT(KC_9),RALT(KC_0),RALT(KC_MINS),LSFT(KC_MINS),\
 RALT(KC_RBRC),KC_1,KC_2,KC_3,	KC_4,	KC_5,                                            KC_6,	KC_7,	KC_8,	KC_9,   KC_0,LSFT(KC_2),\
-_______,LSFT(KC_1),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),                                     LSFT(KC_6),LSFT(KC_0),KC_NUBS,LSFT(KC_NUBS),KC_MINS,_______,\
+_______,LSFT(KC_1),RALT(KC_2),LSFT(KC_3),RALT(KC_4),LSFT(KC_5),                                     LSFT(KC_6),LSFT(KC_0),KC_NUBS,LSFT(KC_NUBS),KC_MINS,_______,\
                 _______,_______,_______,_______,_______,_______,_______,_______,_______,_______\
 ),
 /* stuff
